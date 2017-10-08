@@ -7,6 +7,8 @@ import eventBus from './eventBus';
 
 import Recipe from '../models/recipe.model';
 
+import samples from './samples';
+
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
@@ -130,11 +132,12 @@ const store = new Vuex.Store({
         if(recipes) {
           context.commit('initRecipes', recipes);
         } else {
-          context.commit('initRecipes', []);
+          localForage.setItem(context.state.guid, samples);
+          context.commit('initRecipes', samples);
         }
       })
       .catch(err => {
-        context.commit('initRecipes', []);
+        context.commit('initRecipes', samples);
       })
     }
   }

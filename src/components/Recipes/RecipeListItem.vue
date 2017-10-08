@@ -10,7 +10,7 @@
     <!-- recipe content -->
     <div class="media-content">
       <div class="content">
-        <p><strong>{{ recipe.name | capitalize }}</strong></p>
+        <p><strong>{{ recipe.name | capitalize | shorten}}</strong></p>
       </div>
     </div>
   </article>
@@ -18,13 +18,14 @@
 </template>
 
 <script>
-import { capitalize } from '../../filters/';
+import { capitalize, shorten } from '../../filters/';
 
 export default {
   name: 'recipe-list-item',
   props: ['recipe'],
   filters: {
-    capitalize
+    capitalize,
+    shorten
   }
 }
 </script>

@@ -20,8 +20,8 @@
         <!-- navbar right side: visible on desktop, hidden on touch devices -->
         <transition enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft">
         <div
-        v-show="menuIsOpen" 
-        class="navbar-menu is-active">
+        :class="{'is-active': menuIsOpen}"
+        class="navbar-menu">
           <!-- menu left part -->
           <div class="navbar-start">
 
@@ -70,9 +70,9 @@ export default {
           name: 'Freecodecamp'
         }
       ],
-      menuIsOpen: false
+      menuIsOpen: false,
     }
-  }
+  },
 }
 </script>
 

@@ -151,7 +151,7 @@ export default {
     return {
       recipe: this.setRecipe(),
       units: [
-        'pice',
+        'unit',
         'g',
         'tbsp',
         'kg',

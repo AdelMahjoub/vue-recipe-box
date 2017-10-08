@@ -1,10 +1,20 @@
 export function capitalize(value) {
   if(!Boolean(value) || (typeof value !== 'string')) {
-    return '';
+    return value;
   }
   return value.toLowerCase().split(' ').map(word => {
     return word[0].toUpperCase().concat(word.slice(1));
   }).join(' ');
+}
+
+export function shorten(value) {
+  if(!Boolean(value) || (typeof value !== 'string')) {
+    return value;
+  }
+  if(value.length >= 40) {
+    return `${value.slice(0, 40)} ...`
+  }
+  return value;
 }
 
 export function propToLabel(prop) {
