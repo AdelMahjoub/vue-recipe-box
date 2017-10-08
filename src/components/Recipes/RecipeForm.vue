@@ -231,6 +231,8 @@ export default {
 </script>
 
 <style scoped>
-.quill-editor {
-}
+  .label {
+    letter-spacing: .6px;
+    word-spacing: .6px;
+  }
 </style>

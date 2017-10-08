@@ -6,6 +6,9 @@
         <recipe-list></recipe-list>
       </div>
       <div class="column is-8">
+        <transition appear enter-active-class="animated tada">
+          <recipe-landing v-show="$route.name === 'recipes.all'"></recipe-landing>
+        </transition>
         <router-view></router-view>
       </div>
     </div>
@@ -15,12 +18,14 @@
 <script>
 import Toolbar from '../components/Toolbar';
 import RecipeList from '../components/Recipes/RecipeList';
+import RecipeLanding from '../components/Recipes/RecipeLanding';
 
 export default {
   name: 'home',
   components: {
     Toolbar,
-    RecipeList
+    RecipeList,
+    RecipeLanding
   }
 }
 </script>

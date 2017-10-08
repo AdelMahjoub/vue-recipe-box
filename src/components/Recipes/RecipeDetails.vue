@@ -6,7 +6,7 @@
       <div class="column is-12">
         <div class="content">
           <!-- recipe name -->
-          <transition appear enter-active-class="animated slideInDown">
+          <transition appear enter-active-class="animated slideInDown" leave-active-class="animated fadeOut" mode="out-in">
             <h1
             class="has-text-centered" 
             :key="recipe.id">{{ recipe.name | capitalize }}</h1>

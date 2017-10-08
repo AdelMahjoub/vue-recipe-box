@@ -10,7 +10,7 @@
     <div class="level-right">
       <div class="level-item">
         <router-link
-        v-if="notInEditMode"
+        v-show="notInEditMode"
         :to="{name: 'recipes.edit', params: {id: 'new'}}"
         class="button is-outlined is-primary is-small">
           <span class="icon is-small">

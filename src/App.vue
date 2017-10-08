@@ -28,7 +28,10 @@ export default {
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Bad+Script');
+  @import url('https://fonts.googleapis.com/css?family=Bad+Script|Oswald');
+  * {
+    font-family: 'Oswald', sans-serif;
+  }
   ::-webkit-scrollbar {
       width: 6px;
   }
