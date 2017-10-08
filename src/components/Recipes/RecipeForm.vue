@@ -1,6 +1,18 @@
 <template>
   <div id="recipe-form">
-    <form @submit.prevent="submitRecipe">
+    <!-- loading: wait for store to update -->
+    <div
+    class="animated flash infinite" 
+    v-if="waitForStoreToUpdate">
+      <button 
+      class="is-link is-loading button"></button>
+      <span>Updating recipes</span>
+    </div>
+    
+    <!-- recipe form -->
+    <form
+    v-if="!waitForStoreToUpdate" 
+    @submit.prevent="submitRecipe">
       <!-- recipe name, image, description input fields -->
       <div
       :key="`recipe-field-${prop}`"
@@ -187,7 +199,8 @@ export default {
             ['link', 'image', 'video']
           ]
         }
-      }
+      },
+      waitForStoreToUpdate: false
     }
   },
   filters: {
@@ -218,6 +231,7 @@ export default {
       } else {
         this.$store.dispatch('update', this.recipe);
       }
+      this.waitForStoreToUpdate = true;
     },
     back() {
       window.history.back();
