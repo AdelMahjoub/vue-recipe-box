@@ -8,7 +8,7 @@
           is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY NC SA 4.0</a>.
         </p>
         <p>
-          <a class="icon" href="https://github.com/AdelMahjoub">
+          <a class="icon" href="https://github.com/AdelMahjoub" target="_blank">
             <i class="fa fa-github"></i>
           </a>
         </p>
