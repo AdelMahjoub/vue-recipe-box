@@ -108,6 +108,7 @@
           </div>
         </div>
       </transition-group>
+      <hr>
       <!-- add ingredient button -->
       <transition appear enter-active-class="animated slideInRight">
         <div class="field">

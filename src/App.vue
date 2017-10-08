@@ -6,17 +6,21 @@
         <router-view></router-view>
       </div>
     </div>
+    <page-footer></page-footer>
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 import Navbar from './components/Navbar';
+import PageFooter from './components/PageFooter';
 
 export default {
   name: 'app',
   components: {
-    Navbar
+    Navbar,
+    PageFooter
+
   },
   methods: {
     ...mapActions([ 'initRecipes' ])
@@ -31,6 +35,9 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Bad+Script|Oswald');
   * {
     font-family: 'Oswald', sans-serif;
+  }
+  #app > .section {
+    min-height: 700px;
   }
   ::-webkit-scrollbar {
       width: 6px;

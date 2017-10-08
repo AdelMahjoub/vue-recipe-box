@@ -8,23 +8,40 @@
             <img id="brand-logo" src="../assets/logo.png" alt="recipe box brand logo" width="32">
             <span id="brand-title">{{ brand | capitalize }}</span>
           </router-link>
-          <div class="navbar-burger">
+          <div
+          @click="menuIsOpen = !menuIsOpen"
+          :class="{'is-active': menuIsOpen}"
+          class="navbar-burger">
             <span></span>
             <span></span>
             <span></span>
           </div>
         </div>
         <!-- navbar right side: visible on desktop, hidden on touch devices -->
-        <div class="navbar-menu">
+        <transition enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft">
+        <div
+        v-show="menuIsOpen" 
+        class="navbar-menu is-active">
           <!-- menu left part -->
           <div class="navbar-start">
 
           </div>
           <!-- menu right part -->
           <div class="navbar-end">
-            
+            <a
+            :key="socialLink.name"
+            v-for="socialLink in socialLinks" 
+            :href="socialLink.url" 
+            class="navbar-item"
+            target="_blank">
+              <span class="has-icon">
+                <i :class="socialLink.icon" class="fa-lg"></i>
+                <span>{{ socialLink.name }}</span>
+              </span>
+            </a>
           </div>
         </div>
+        </transition>
       </div>
     </div>
   </div>
@@ -40,7 +57,20 @@ export default {
   },
   data() {
     return {
-      brand: 'recipe box'
+      brand: 'recipe box',
+      socialLinks: [
+        {
+          url: 'https://github.com/AdelMahjoub',
+          icon: 'fa fa-github',
+          name: 'Github'
+        },
+        {
+          url: 'https://www.freecodecamp.org/adelmahjoub',
+          icon: 'fa fa-free-code-camp',
+          name: 'Freecodecamp'
+        }
+      ],
+      menuIsOpen: false
     }
   }
 }
@@ -50,11 +80,11 @@ export default {
   .navbar-brand > .navbar-item {
     padding-left: 0;
   }
-  .navbar-menu .navbar-item {
-    padding-right: 0;
-  }
   a.navbar-item {
     font-weight: bold;
+  }
+  .navbar-menu .navbar-item span{
+    font-family: 'Bad Script', cursive;
   }
   #brand-title {
     font-size: 22px;
