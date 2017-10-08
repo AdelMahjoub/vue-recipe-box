@@ -14,8 +14,7 @@ const router = new VueRouter({
       { path: 'edit/:id', name: 'recipes.edit', component: RecipeForm },
       { path: ':id', name: 'recipes.id', component: RecipeDetails },
     ]}
-  ],
-  mode: 'history'
+  ]
 });
 
 export default router;
