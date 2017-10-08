@@ -115,13 +115,13 @@ export default {
   },
   mounted() {
     if(!this.recipe.id) {
-      this.$router.push({ name: 'recipes.all' });
+      this.$router.replace({ name: 'recipes.all' });
     }
     eventBus.$on('discarded', id => {
       if(id) {
-        this.$router.push({ name: 'recipes.id', params: { id } })
+        this.$router.replace({ name: 'recipes.id', params: { id } })
       } else {
-        this.$router.push({ name: 'recipes.all' })
+        this.$router.replace({ name: 'recipes.all' })
       }
     })
   }

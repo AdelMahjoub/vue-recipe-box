@@ -225,7 +225,7 @@ export default {
   },
   mounted() {
     eventBus.$on('saved', (id) => {
-      this.$router.push({name: 'recipes.id', params: { id }});
+      this.$router.replace({name: 'recipes.id', params: { id }});
     });
   }
 }
