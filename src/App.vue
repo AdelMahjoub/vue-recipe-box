@@ -22,7 +22,6 @@ export default {
     ...mapActions([ 'initRecipes' ])
   },
   mounted() {
-    console.log('mounted')
     this.initRecipes();
   }
 }

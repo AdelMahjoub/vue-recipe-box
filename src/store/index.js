@@ -28,6 +28,13 @@ const store = new Vuex.Store({
     },
     recipesPage: state => (startIndex, lastIndex) => {
       return state.recipes.slice(startIndex, lastIndex);
+    },
+    search: state => searchTerm => {
+      if(searchTerm) {
+        return state.recipes.filter(recipe => recipe.name.toLowerCase().includes(searchTerm.toLowerCase()));
+      } else {
+        return state.recipes;
+      }
     }
   },
   mutations: {

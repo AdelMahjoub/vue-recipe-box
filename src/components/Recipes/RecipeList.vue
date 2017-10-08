@@ -5,7 +5,11 @@
       <div class="panel-block">
         <!-- search field -->
         <p class="control has-icons-left">
-          <input class="input is-small" type="text" placeholder="search">
+          <input
+          v-model="searchTerm"
+          class="input is-small" 
+          type="text" 
+          placeholder="search">
           <span class="icon is-small is-left">
             <i class="fa fa-search"></i>
           </span>
@@ -84,7 +88,8 @@ export default {
       pagination: {
         currentPage: 1,
         perPage: 10,
-      }
+      },
+      searchTerm: ''
     }
   },
   components: {
@@ -92,9 +97,14 @@ export default {
   },
   computed: {
     recipes() {
-      const startIndex = (this.pagination.currentPage - 1) * this.pagination.perPage
-      const lastIndex = this.pagination.currentPage * this.pagination.perPage;
-      return this.$store.getters.recipesPage(startIndex, lastIndex);
+      if(!this.searchTerm) {
+        const startIndex = (this.pagination.currentPage - 1) * this.pagination.perPage
+        const lastIndex = this.pagination.currentPage * this.pagination.perPage;
+        return this.$store.getters.recipesPage(startIndex, lastIndex);
+      } else {
+        this.pagination.currentPage = 1;
+        return this.$store.getters.search(this.searchTerm)
+      }
     },
     totalItems() {
       return this.$store.state.recipes.length;
