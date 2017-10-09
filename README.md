@@ -1,7 +1,6 @@
-# vue-vuex-firebase
+# v-recipe-box
 
-> A Vue.js project
-
+> add, edit and store recipes
 ## Build Setup
 
 ``` bash
