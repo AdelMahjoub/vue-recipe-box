@@ -60,7 +60,7 @@ export default {
       brand: 'recipe box',
       socialLinks: [
         {
-          url: 'https://github.com/AdelMahjoub',
+          url: 'https://github.com/AdelMahjoub/vue-recipe-box',
           icon: 'fa fa-github',
           name: 'Github'
         },
